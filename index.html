@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2>Nhập cân nặng</h2>
+        <input placeholder="50kg" id="weight" type="text">
+    </div>
+    <div>
+        <h2>Nhập chiều cao</h2>
+        <input placeholder="180cm" id="height" type="text">
+    </div>
+    <div>
+        <button onclick="oc()">Kiểm tra BMI</button>
+    </div>
+    <div><p id="result"></p></div>
+</body>
+</html>
+<script>
+    function oc() {
+        let w = document.getElementById('weight').value;
+        let h = (document.getElementById('height').value) / 100;
+        let BMI = (w / (h * h)).toFixed(2);
+        if (BMI < 18.5) {
+            document.getElementById('result').innerText= 'chỉ số BMI của bạn là: '+BMI+' '+':Underweight';
+        }
+        else if(18.5<=BMI<=25.0){
+            document.getElementById('result').innerText= 'chỉ số BMI của bạn là: '+BMI+' '+':Normal';
+        }
+        else if( 25.0<=BMI<30.0){
+            document.getElementById('result').innerText= 'chỉ số BMI của bạn là: '+BMI+' '+':Overweight';
+        }
+        else {
+            document.getElementById('result').innerText= 'chỉ số BMI của bạn là: '+BMI+' '+':Obese';
+        }
+
+    }
+</script>
